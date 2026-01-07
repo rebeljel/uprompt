@@ -15,6 +15,14 @@ def _add_patterns_methods():
     def chain_of_thought(self, *, task: str, input_text: str):
         return Patterns.chain_of_thought(task=task, input_text=input_text)
 
+    def role_prompt(self, *, task: str, role: str, input_text: str):
+        return Patterns.role_prompt(task=task, role=role, input_text=input_text)
+    
+    def self_critique(self, *, task: str, input_text: str):
+        return Patterns.self_critique(task=task, input_text=input_text)
+
+    setattr(Uprompt, "self_critique", self_critique)
+    setattr(Uprompt, "role_prompt", role_prompt)
     setattr(Uprompt, "chain_of_thought", chain_of_thought)
     setattr(Uprompt, "zero_shot", zero_shot)
     setattr(Uprompt, "one_shot", one_shot)

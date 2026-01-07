@@ -24,3 +24,13 @@ class Patterns:
     def chain_of_thought(task: str, input_text: str) -> Prompt:
         text = f"{task}\nThink step by step.\nInput: {input_text}\nOutput:"
         return Prompt(text=text, pattern="chain_of_thought")
+    
+    @staticmethod
+    def role_prompt(task: str, role: str, input_text: str) -> Prompt:
+        text = f"{task}\nYou are a {role}.\nInput: {input_text}\nOutput:"
+        return Prompt(text=text, pattern="role_prompt")
+    
+    @staticmethod
+    def self_critique(task: str, input_text: str) -> Prompt:
+        text = f"{task}\nProvide an answer and then critique it.\nInput: {input_text}\nOutput:"
+        return Prompt(text=text, pattern="self_critique")
