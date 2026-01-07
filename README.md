@@ -54,21 +54,21 @@ pip install pytest
 # Zero-shot
 p1 = up.zero_shot(task_description="Summarize the text", input_text="This is a long paragraph.")
 print(p1.text)
-```
+
 # Output:
 # Summarize the text
 # Input: This is a long paragraph.
 # Output:
 
 # One-shot
-```python
+
 p2 = up.one_shot(
     task_description="Translate to German",
     examples=[{"text": "Good", "output": "Gut"}],
     input_text="Bye"
 )
 print(p2.text)
-```
+
 # Output:
 # Translate to German
 #
@@ -81,7 +81,7 @@ print(p2.text)
 # Output:
 
 # Few-shot
-```python
+
 p3 = up.few_shot(
     task_description="Translate to German",
     examples=[
@@ -91,7 +91,7 @@ p3 = up.few_shot(
     input_text="See you later"
 )
 print(p3.text)
-```
+
 # Output:
 # Translate to German
 #
@@ -107,13 +107,13 @@ print(p3.text)
 # Output:
 
 # Chain-of-Thought
-```python
+
 p4 = up.chain_of_thought(
     task_description="Solve math problem",
     input_text="If a train travels 60km in 1 hour, how far in 3 hours?"
 )
 print(p4.text)
-```
+
 # Output:
 # Solve math problem
 # Think step by step.
@@ -121,14 +121,14 @@ print(p4.text)
 # Output:
 
 # Role prompt
-```python
+
 p5 = up.role_prompt(
     task_description="Explain AI like I'm 5",
     role="Teacher",
     input_text="What is machine learning?"
 )
 print(p5.text)
-```
+
 # Output:
 # Explain AI like I'm 5
 # You are a Teacher.
@@ -136,15 +136,16 @@ print(p5.text)
 # Output:
 
 # Self-critique
-```python
+
 p6 = up.self_critique(
     task_description="Summarize text",
     input_text="This is a long paragraph that needs summarizing."
 )
 print(p6.text)
-```
+
 # Output:
 # Summarize text
 # Provide an answer and then critique it.
 # Input: This is a long paragraph that needs summarizing.
 # Output:
+´´´
