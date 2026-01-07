@@ -48,24 +48,42 @@ pip install pytest
 ```
 
 
-## Usage
+# Usage
 
-
+```python
 # Zero-shot
-p1 = up.zero_shot(task="Summarize the text", input_text="This is a long paragraph.")
+p1 = up.zero_shot(task_description="Summarize the text", input_text="This is a long paragraph.")
 print(p1.text)
+```
+# Output:
+# Summarize the text
+# Input: This is a long paragraph.
+# Output:
 
 # One-shot
+```python
 p2 = up.one_shot(
-    task="Translate to German",
+    task_description="Translate to German",
     examples=[{"text": "Good", "output": "Gut"}],
     input_text="Bye"
 )
 print(p2.text)
+```
+# Output:
+# Translate to German
+#
+# Example:
+# Input: Good
+# Output: Gut
+#
+# Now do the same for:
+# Input: Bye
+# Output:
 
 # Few-shot
+```python
 p3 = up.few_shot(
-    task="Translate to German",
+    task_description="Translate to German",
     examples=[
         {"text": "Good morning", "output": "Guten Morgen"},
         {"text": "Good night", "output": "Gute Nacht"},
@@ -73,44 +91,60 @@ p3 = up.few_shot(
     input_text="See you later"
 )
 print(p3.text)
+```
+# Output:
+# Translate to German
+#
+# Examples:
+# Input: Good morning
+# Output: Guten Morgen
+#
+# Input: Good night
+# Output: Gute Nacht
+#
+# Now do the same for:
+# Input: See you later
+# Output:
 
 # Chain-of-Thought
+```python
 p4 = up.chain_of_thought(
-    task="Solve math problem",
+    task_description="Solve math problem",
     input_text="If a train travels 60km in 1 hour, how far in 3 hours?"
 )
 print(p4.text)
+```
+# Output:
+# Solve math problem
+# Think step by step.
+# Input: If a train travels 60km in 1 hour, how far in 3 hours?
+# Output:
 
 # Role prompt
+```python
 p5 = up.role_prompt(
-    task="Explain AI like I'm 5",
+    task_description="Explain AI like I'm 5",
     role="Teacher",
     input_text="What is machine learning?"
 )
 print(p5.text)
+```
+# Output:
+# Explain AI like I'm 5
+# You are a Teacher.
+# Input: What is machine learning?
+# Output:
 
 # Self-critique
+```python
 p6 = up.self_critique(
-    task="Summarize text",
+    task_description="Summarize text",
     input_text="This is a long paragraph that needs summarizing."
 )
 print(p6.text)
-
-
-## Project Structure
-
-uprompt/                <- package folder
-├── __init__.py          <- Uprompt class + pattern methods
-├── core.py              <- Uprompt & Prompt classes
-├── patterns.py          <- Prompt engineering pattern implementations
-tests/
-└── test_patterns.py     <- pytest tests
-pyproject.toml           <- project metadata
-.venv/                   <- virtual environment
-README.md
-LICENSE
-
-## Testing
-
-pytest tests/
-
+```
+# Output:
+# Summarize text
+# Provide an answer and then critique it.
+# Input: This is a long paragraph that needs summarizing.
+# Output:
